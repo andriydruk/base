@@ -1166,7 +1166,12 @@ static NSNotificationCenter *default_center = nil;
 	      /*
 	       * Now observers with a nil object.
 	       */
+        #ifdef __ANDROID__
+        GSIMapKey nilUnion;
+        n = GSIMapNodeForSimpleKey(m, nilUnion); 
+        #else
 	      n = GSIMapNodeForSimpleKey(m, (GSIMapKey)nil);
+        #endif
 	      if (n != 0)
 		{
 	          o = purgeCollectedFromMapNode(m, n);

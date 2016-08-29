@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 @class NSException;
-@class NXConstantString;
+@class NSXConstantString;
 
 /**** Type, Constant, and Macro Definitions **********************************/
 

@@ -297,7 +297,7 @@ nextUTF8(const uint8_t *p, unsigned l, unsigned *o, unichar *n)
 }
 
 static BOOL
-literalIsEqualInternal(NXConstantString *s, GSStr o)
+literalIsEqualInternal(NSXConstantString *s, GSStr o)
 {
   unsigned	len = o->_count;
 
@@ -666,7 +666,7 @@ setup(BOOL rerun)
       GSCSubStringClass = [GSCSubString class];
       GSUnicodeSubStringClass = [GSUnicodeSubString class];
       GSMutableStringClass = [GSMutableString class];
-      NSConstantStringClass = [NXConstantString class];
+      NSConstantStringClass = [NSXConstantString class];
 
       /*
        * Cache some selectors and method implementations for
@@ -3011,7 +3011,7 @@ isEqual_c(GSStr self, id anObject)
     }
   if (c == NSConstantStringClass)
     {
-      return literalIsEqualInternal((NXConstantString*)anObject, (GSStr)self);
+      return literalIsEqualInternal((NSXConstantString*)anObject, (GSStr)self);
     }
   if (c == GSMutableStringClass || GSObjCIsKindOf(c, GSStringClass) == YES)
     {
@@ -3083,7 +3083,7 @@ isEqual_u(GSStr self, id anObject)
     }
   if (c == NSConstantStringClass)
     {
-      return literalIsEqualInternal((NXConstantString*)anObject, (GSStr)self);
+      return literalIsEqualInternal((NSXConstantString*)anObject, (GSStr)self);
     }
   if (c == GSMutableStringClass || GSObjCIsKindOf(c, GSStringClass) == YES)
     {
@@ -5650,7 +5650,7 @@ NSAssert(_flags.owned == 1 && _zone != 0, NSInternalInconsistencyException);
 
 
 static BOOL
-literalIsEqual(NXConstantString *self, id anObject)
+literalIsEqual(NSXConstantString *self, id anObject)
 {
   Class	c;
 
@@ -5680,7 +5680,7 @@ literalIsEqual(NXConstantString *self, id anObject)
   c = object_getClass(anObject);
   if (c == NSConstantStringClass)
     {
-      NXConstantString	*other = (NXConstantString*)anObject;
+      NSXConstantString	*other = (NSXConstantString*)anObject;
 
       if (other->nxcslen != self->nxcslen
 	|| strcmp(other->nxcsptr, self->nxcsptr) != 0)
@@ -5736,16 +5736,16 @@ literalIsEqual(NXConstantString *self, id anObject)
 }
 
 /**
- * <p>The NXConstantString class is used by the compiler for constant
+ * <p>The NSXConstantString class is used by the compiler for constant
  * strings, as such its ivar layout is determined by the compiler
  * and consists of a pointer (_contents.c) and a character count
  * (_count). 
  */
-@implementation NXConstantString
+@implementation NSXConstantString
 
 + (void) initialize
 {
-  if (self == [NXConstantString class])
+  if (self == [NSXConstantString class])
     {
       NSConstantStringClass = self;
     }

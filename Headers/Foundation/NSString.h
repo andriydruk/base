@@ -905,7 +905,7 @@ typedef NSUInteger NSStringEncodingConversionOptions;
  * What follows is a dummy declaration of the class to keep the compiler
  * happy.
  */
-@interface NXConstantString : NSString
+@interface NSXConstantString : NSString
 {
 @public
   const char * const nxcsptr;

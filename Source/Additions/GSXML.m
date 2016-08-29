@@ -72,6 +72,7 @@
 #import "Foundation/NSURL.h"
 #import "Foundation/NSURLHandle.h"
 #import "Foundation/NSValue.h"
+#import "Foundation/NSURLRequest.h"   
 
 /* Avoid problems on systems where the xml headers use 'id'
  */

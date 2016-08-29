@@ -45,7 +45,12 @@
 #import "GSPrivate.h"
 
 /* include the interface to the dynamic linker */
+#ifdef __ANDROID__   
+#include "null-load.h"
+#include "dlfcn.h"
+#else
 #include "dynamic-load.h"
+#endif   
 
 /* dynamic_loaded is YES if the dynamic loader was sucessfully initialized. */
 static BOOL	dynamic_loaded;
