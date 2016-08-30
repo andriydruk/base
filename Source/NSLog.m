@@ -37,6 +37,15 @@
 #import "Foundation/NSThread.h"
 #import "GNUstepBase/NSString+GNUstepBase.h"
 
+#ifdef __ANDROID__
+#include <android/log.h>
+#define LOGV(TAG,...) __android_log_print(ANDROID_LOG_VERBOSE, TAG,__VA_ARGS__)
+#define LOGD(TAG,...) __android_log_print(ANDROID_LOG_DEBUG  , TAG,__VA_ARGS__)
+#define LOGI(TAG,...) __android_log_print(ANDROID_LOG_INFO   , TAG,__VA_ARGS__)
+#define LOGW(TAG,...) __android_log_print(ANDROID_LOG_WARN   , TAG,__VA_ARGS__)
+#define LOGE(TAG,...) __android_log_print(ANDROID_LOG_ERROR  , TAG,__VA_ARGS__)
+#endif   
+
 // Some older BSD systems used a non-standard range of thread priorities.
 #ifdef	HAVE_SYSLOG_H
 #include <syslog.h>
@@ -328,6 +337,13 @@ NSLog(NSString* format, ...)
  *   <ref type="variable" id="_NSLog_printf_handler">_NSLog_printf_handler</ref>
  * </p>
  */
+#ifdef __ANDROID__
+void
+NSLogv(NSString* format, va_list args)
+{
+  LOGV("TAG", [format UTF8String], args);
+}
+#else 
 void
 NSLogv(NSString* format, va_list args)
 {
@@ -438,4 +454,4 @@ NSLogv(NSString* format, va_list args)
 
   [prefix release];
 }
-
+#endif

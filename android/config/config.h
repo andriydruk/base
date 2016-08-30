@@ -11,19 +11,19 @@
 #define GNUSTEP_BASE_LIBRARY 1
 
 /* The normal alignment of `pthread_cond_t', in bytes. */
-#define ALIGNOF_PTHREAD_COND_T 8
+#define ALIGNOF_PTHREAD_COND_T 4
 
 /* The normal alignment of `pthread_mutex_t', in bytes. */
-#define ALIGNOF_PTHREAD_MUTEX_T 8
+#define ALIGNOF_PTHREAD_MUTEX_T 4
 
 /* Define if SO_REUSEADDR is broken on this system */
-/* #undef BROKEN_SO_REUSEADDR */
+#define BROKEN_SO_REUSEADDR 1
 
 /* Define if your system terminates the final argument in /proc/$$/cmdline */
-#define CMDLINE_TERMINATED 1
+#define CMDLINE_TERMINATED 0
 
 /* Define if constructors are automatically loaded */
-#define CON_AUTOLOAD 1
+/* #undef CON_AUTOLOAD */
 
 /* Built in default value for GNUstep config file */
 #define GNUSTEP_TARGET_CONFIG_FILE "/etc/GNUstep/GNUstep.conf"
@@ -185,7 +185,7 @@
 /* #undef HAVE_AVAHI_CLIENT_CLIENT_H */
 
 /* Define to 1 if you have the `backtrace' function. */
-//#define HAVE_BACKTRACE 1
+/* #undef HAVE_BACKTRACE */
 
 /* Define to 1 if you have the <bfd.h> header file. */
 /* #undef HAVE_BFD_H */
@@ -230,13 +230,13 @@
 /* #undef HAVE_DNS_SD_H */
 
 /* Define to 1 if you have the <execinfo.h> header file. */
-#define HAVE_EXECINFO_H 1
+/* #undef HAVE_EXECINFO_H */
 
 /* Define to 1 if you have the <fcntl.h> header file. */
 #define HAVE_FCNTL_H 1
 
 /* Define to 1 if you have the `ffi_prep_closure_loc' function. */
-//#define HAVE_FFI_PREP_CLOSURE_LOC 1
+/* #undef HAVE_FFI_PREP_CLOSURE_LOC */
 
 /* Define to 1 if you have the <float.h> header file. */
 #define HAVE_FLOAT_H 1
@@ -260,16 +260,16 @@
 #define HAVE_GETGRGID 1
 
 /* Define to 1 if you have the `getgrgid_r' function. */
-#define HAVE_GETGRGID_R 1
+/* #undef HAVE_GETGRGID_R */
 
 /* Define to 1 if you have the `getgrnam' function. */
 #define HAVE_GETGRNAM 1
 
 /* Define to 1 if you have the `getgrnam_r' function. */
-//#define HAVE_GETGRNAM_R 1
+/* #undef HAVE_GETGRNAM_R */
 
 /* Define to 1 if you have the `gethostbyaddr_r' function. */
-#define HAVE_GETHOSTBYADDR_R 1
+/* #undef HAVE_GETHOSTBYADDR_R */
 
 /* Define to 1 if you have the `gethostbyname' function. */
 #define HAVE_GETHOSTBYNAME 1
@@ -296,7 +296,7 @@
 #define HAVE_GETPWUID_R 1
 
 /* Define if you have gettid() */
-#define HAVE_GETTID 1
+/* #undef HAVE_GETTID */
 
 /* Define if you have this function */
 /* #undef HAVE_GICONV */
@@ -305,19 +305,19 @@
 /* #undef HAVE_GMP_H */
 
 /* Define if libgnutls available */
-//#define HAVE_GNUTLS 1
+/* #undef HAVE_GNUTLS */
 
 /* Define to 1 if you have the `gnutls_transport_set_errno' function. */
-//#define HAVE_GNUTLS_TRANSPORT_SET_ERRNO 1
+/* #undef HAVE_GNUTLS_TRANSPORT_SET_ERRNO */
 
 /* Define to 1 if you have the `grantpt' function. */
-//#define HAVE_GRANTPT 1
+/* #undef HAVE_GRANTPT */
 
 /* Define to 1 if you have the <grp.h> header file. */
 #define HAVE_GRP_H 1
 
 /* Define if you have this function */
-#define HAVE_ICONV 1
+/* #undef HAVE_ICONV */
 
 /* Define to 1 if you have the `inet_aton' function. */
 #define HAVE_INET_ATON 1
@@ -368,16 +368,16 @@
 #define HAVE_LIBM 1
 
 /* Define to 1 if you have the `rt' library (-lrt). */
-#define HAVE_LIBRT 1
+/* #undef HAVE_LIBRT */
 
 /* Define to 1 if you have the `socket' library (-lsocket). */
 /* #undef HAVE_LIBSOCKET */
 
 /* Define if libxml available */
-//#define HAVE_LIBXML 1
+/* #undef HAVE_LIBXML */
 
 /* Define to 1 if you have the <libxml/SAX2.h> header file. */
-//#define HAVE_LIBXML_SAX2_H 1
+/* #undef HAVE_LIBXML_SAX2_H */
 
 /* Define if libxslt available */
 /* #undef HAVE_LIBXSLT */
@@ -425,7 +425,7 @@
 #define HAVE_OBJC_OBJC_H 1
 
 /* Says whether the objc_root_class attribute works */
-#define HAVE_OBJC_ROOT_CLASS_ATTRIBUTE 1
+#define HAVE_OBJC_ROOT_CLASS_ATTRIBUTE 0
 
 /* Define to 1 if you have the <objc/runtime.h> header file. */
 #define HAVE_OBJC_RUNTIME_H 1
@@ -434,13 +434,13 @@
 /* #undef HAVE_OBJC_SETPROPERTY */
 
 /* Define to 1 if you have the `objc_sync_enter' function. */
-/* #undef HAVE_OBJC_SYNC_ENTER */
+#define HAVE_OBJC_SYNC_ENTER 1
 
 /* Define to 1 if you have the `poll' function. */
 #define HAVE_POLL 1
 
 /* Define if poll is NOT emulated via select */
-#define HAVE_POLL_F 1
+/* #undef HAVE_POLL_F */
 
 /* Define to 1 if you have the <poll.h> header file. */
 #define HAVE_POLL_H 1
@@ -449,7 +449,7 @@
 #define HAVE_POSIX_MEMALIGN 1
 
 /* Define if system supports the /proc filesystem */
-#define HAVE_PROCFS 1
+/* #undef HAVE_PROCFS */
 
 /* Define to 1 if you have the <procfs.h> header file. */
 /* #undef HAVE_PROCFS_H */
@@ -458,7 +458,7 @@
 /* #undef HAVE_PROCFS_PSINFO */
 
 /* Define if your Lib C defines program_invocation_name */
-#define HAVE_PROGRAM_INVOCATION_NAME 1
+/* #undef HAVE_PROGRAM_INVOCATION_NAME */
 
 /* Define to 1 if you have the `pthread_getthreadid_np' function. */
 /* #undef HAVE_PTHREAD_GETTHREADID_NP */
@@ -470,7 +470,7 @@
 /* #undef HAVE_PTHREAD_MAIN_NP */
 
 /* Define if you have pthread_mutex_t.__data.__owner */
-//#define HAVE_PTHREAD_MUTEX_OWNER 1
+/* #undef HAVE_PTHREAD_MUTEX_OWNER */
 
 /* Define to 1 if you have the <pthread_np.h> header file. */
 /* #undef HAVE_PTHREAD_NP_H */
@@ -494,7 +494,7 @@
 #define HAVE_REGISTER_PRINTF_FUNCTION 1
 
 /* Define to 1 if you have the `register_printf_specifier' function. */
-//#define HAVE_REGISTER_PRINTF_SPECIFIER 1
+/* #undef HAVE_REGISTER_PRINTF_SPECIFIER */
 
 /* Define to 1 if you have the `rint' function. */
 #define HAVE_RINT 1
@@ -521,7 +521,7 @@
 /* #undef HAVE_SET_UNEXPECTED */
 
 /* Define to 1 if you have the `shmctl' function. */
-//#define HAVE_SHMCTL 0
+/* #undef HAVE_SHMCTL */
 
 /* Define to 1 if you have the `sigaction' function. */
 #define HAVE_SIGACTION 1
@@ -530,7 +530,7 @@
 #define HAVE_SIGNAL_H 1
 
 /* Define to 1 if you have the `sigsetjmp' function. */
-/* #undef HAVE_SIGSETJMP */
+#define HAVE_SIGSETJMP 1
 
 /* Define to 1 if you have the `Sleep' function. */
 /* #undef HAVE_SLEEP */
@@ -545,7 +545,7 @@
 #define HAVE_SOCKLEN_T 1
 
 /* Define to 1 if you have the `statvfs' function. */
-//#define HAVE_STATVFS 1
+/* #undef HAVE_STATVFS */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -585,7 +585,7 @@
 /* #undef HAVE_SYS_DIR_H */
 
 /* Define to 1 if you have the <sys/fcntl.h> header file. */
-//#define HAVE_SYS_FCNTL_H 0
+/* #undef HAVE_SYS_FCNTL_H */
 
 /* Define to 1 if you have the <sys/file.h> header file. */
 #define HAVE_SYS_FILE_H 1
@@ -619,7 +619,7 @@
 /* #undef HAVE_SYS_RUSAGE_H */
 
 /* Define to 1 if you have the <sys/signal.h> header file. */
-//#define HAVE_SYS_SIGNAL_H 1
+/* #undef HAVE_SYS_SIGNAL_H */
 
 /* Define to 1 if you have the <sys/slogcodes.h> header file. */
 /* #undef HAVE_SYS_SLOGCODES_H */
@@ -634,19 +634,19 @@
 #define HAVE_SYS_STATFS_H 1
 
 /* Define to 1 if you have the <sys/statvfs.h> header file. */
-//#define HAVE_SYS_STATVFS_H 1
+/* #undef HAVE_SYS_STATVFS_H */
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H 1
 
 /* Define to 1 if you have the <sys/stropts.h> header file. */
-//#define HAVE_SYS_STROPTS_H 1
+/* #undef HAVE_SYS_STROPTS_H */
 
 /* Define to 1 if you have the <sys/sysctl.h> header file. */
 #define HAVE_SYS_SYSCTL_H 1
 
 /* Define to 1 if you have the <sys/syslimits.h> header file. */
-/* #undef HAVE_SYS_SYSLIMITS_H */
+#define HAVE_SYS_SYSLIMITS_H 1
 
 /* Define to 1 if you have the <sys/time.h> header file. */
 #define HAVE_SYS_TIME_H 1
@@ -766,13 +766,13 @@
 #define HAVE_ZLIB_H 1
 
 /* Define to 1 if you have the `_Block_copy' function. */
-/* #undef HAVE__BLOCK_COPY */
+#define HAVE__BLOCK_COPY 1
 
 /* Define to 1 if you have the `__builtin_extract_return_address' function. */
 /* #undef HAVE___BUILTIN_EXTRACT_RETURN_ADDRESS */
 
 /* Define if your system needs to have short/int word aligned */
-#define NEED_WORD_ALIGNMENT 0
+#define NEED_WORD_ALIGNMENT 1
 
 /* Disable GNUSTEP_CONFIG_FILE environment variable */
 #define OPTION_NO_ENVIRONMENT 0
@@ -796,7 +796,7 @@
 #define PACKAGE_VERSION ""
 
 /* Define as the link to exe of process in /proc filesystem. */
-#define PROCFS_EXE_LINK "/proc/self/exe"
+/* #undef PROCFS_EXE_LINK */
 
 /* Description: Define setname function for pthread with three args */
 #define PTHREAD_SETNAME(a) pthread_setname_np(pthread_self(),a)
@@ -814,28 +814,28 @@
 #define SIZEOF_INT 4
 
 /* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 8
+#define SIZEOF_LONG 4
 
 /* The size of `long long', as computed by sizeof. */
 #define SIZEOF_LONG_LONG 8
 
 /* The size of `pthread_cond_t', as computed by sizeof. */
-#define SIZEOF_PTHREAD_COND_T 48
+#define SIZEOF_PTHREAD_COND_T 4
 
 /* The size of `pthread_mutex_t', as computed by sizeof. */
-#define SIZEOF_PTHREAD_MUTEX_T 40
+#define SIZEOF_PTHREAD_MUTEX_T 4
 
 /* The size of `short', as computed by sizeof. */
 #define SIZEOF_SHORT 2
 
 /* The size of `void*', as computed by sizeof. */
-#define SIZEOF_VOIDP 8
+#define SIZEOF_VOIDP 4
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Define to 1 if strerror_r returns char *. */
-#define STRERROR_R_CHAR_P 1
+/* #undef STRERROR_R_CHAR_P */
 
 /* Define if the compiler provides builtins for atomic operations */
 #define USE_ATOMIC_BUILTINS 1
@@ -847,7 +847,7 @@
 /* #undef USE_FFCALL */
 
 /* Define if using the libffi library for invocations */
-#define USE_LIBFFI 1
+/* #undef USE_LIBFFI */
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE

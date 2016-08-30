@@ -9,11 +9,9 @@ LOCAL_C_INCLUDES	:= $(LOCAL_PATH)/android/config \
 					   $(LOCAL_PATH)/Source \
 					   $(LOCAL_PATH)/../libkqueue/include \
 					   $(LOCAL_PATH)/../blocksruntime/BlocksRuntime \
-					   $(LOCAL_PATH)/../libffi/linux-arm \
 
 LOCAL_CFLAGS		:= -fno-objc-arc 
-LOCAL_SRC_FILES		:= 	Source/cifframe.m \
-						Source/callframe.m \
+LOCAL_SRC_FILES		:= 	Source/callframe.m \
 						Source/CXXException.m \
 						Source/externs.m \
 						Source/GSArray.m \
@@ -22,7 +20,6 @@ LOCAL_SRC_FILES		:= 	Source/cifframe.m \
 						Source/GSConcreteValue.m \
 						Source/GSCountedSet.m \
 						Source/GSDictionary.m \
-						Source/GSFFIInvocation.m \
 						Source/GSFileHandle.m \
 						Source/GSFormat.m \
 						Source/GSFTPURLHandle.m \
@@ -201,9 +198,10 @@ LOCAL_SRC_FILES		:= 	Source/cifframe.m \
 						Source/NSURLProtocol.m \
 						Source/GSHTTPURLHandle.m \
 						Source/Additions/NSStream+GNUstepBase.m \
-						Source/objc-load.m \					
+						Source/objc-load.m \
 
-# 
+# Source/GSFFIInvocation.m \
+# Source/cifframe.m \
 # Source/GSAvahiClient.m \
 # Source/GSConcreteValueTemplate.m \
 # Source/GSFFCallInvocation.m \
@@ -214,11 +212,11 @@ LOCAL_SRC_FILES		:= 	Source/cifframe.m \
 # Source/NSKeyValueMutableSet.m \
 # Source/NSKeyValueCoding.m \
 
-LOCAL_LDLIBS := -llog -objc2rt_static 
+LOCAL_LDLIBS := -lz -llog -objc2rt_static
 
 LOCAL_STATIC_LIBRARIES := libobjectivec2
 
-LOCAL_SHARED_LIBRARIES := libffi icudata_shared icui18n_shared icuio_shared icule_shared iculx_shared icutu_shared icuuc_shared libxml2 gnustl_shared
+LOCAL_SHARED_LIBRARIES := icudata_shared icui18n_shared icuio_shared icule_shared iculx_shared icutu_shared icuuc_shared libxml2 gnustl_shared
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/Headers
 

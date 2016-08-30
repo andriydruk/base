@@ -134,11 +134,11 @@
  */
 #define	GS_SIZEOF_SHORT		2
 #define	GS_SIZEOF_INT		4
-#define	GS_SIZEOF_LONG		8
+#define	GS_SIZEOF_LONG		4
 #define	GS_SIZEOF_LONG_LONG	8
 #define	GS_SIZEOF_FLOAT		4
 #define	GS_SIZEOF_DOUBLE	8
-#define	GS_SIZEOF_VOIDP		8
+#define	GS_SIZEOF_VOIDP		4
 
 /*
  *	Size information to be places in bits 5 and 6 of type encoding bytes
@@ -147,7 +147,7 @@
  */
 #define	_GSC_S_SHT	_GSC_I16
 #define	_GSC_S_INT	_GSC_I32
-#define	_GSC_S_LNG	_GSC_I64
+#define	_GSC_S_LNG	_GSC_I32
 #define	_GSC_S_LNG_LNG	_GSC_I64
 
 /*
@@ -159,8 +159,8 @@ typedef signed short gss16;
 typedef unsigned short gsu16;
 typedef signed int gss32;
 typedef unsigned int gsu32;
-typedef signed long gss64;
-typedef unsigned long gsu64;
+typedef signed long long gss64;
+typedef unsigned long long gsu64;
 typedef struct { gsu8 a[16]; } gss128;
 typedef struct { gsu8 a[16]; } gsu128;
 typedef float gsf32;
@@ -169,8 +169,8 @@ typedef double gsf64;
 /*
  * Integer type with same size as a pointer
  */
-typedef	unsigned long gsuaddr;
-typedef	long gssaddr;
+typedef	unsigned int gsuaddr;
+typedef	int gssaddr;
 typedef	gsuaddr gsaddr;
 
 /*
@@ -210,7 +210,7 @@ typedef	gsuaddr gsaddr;
 /*
  *	Do we have zlib for file handle compression?
  */
-#define USE_ZLIB	0
+#define USE_ZLIB	1
 
 /*
  *	Do we have the GNU Multiple-precision library for NSDecimal?
@@ -226,7 +226,7 @@ typedef	gsuaddr gsaddr;
 /*
  * Define to say if we use NXConstantString or NSConstantString
  */
-#define NXConstantString	
+#define NXConstantString	NXConstantString
 
 
 /*
@@ -253,24 +253,24 @@ typedef	gsuaddr gsaddr;
  * implementation of the current platform.
  */
 typedef	struct {
-  uint8_t	dummy[48];
-} gs_cond_t	__attribute__((aligned (8)));
+  uint8_t	dummy[4];
+} gs_cond_t	__attribute__((aligned (4)));
 typedef	struct {
-  uint8_t	dummy[40];
-} gs_mutex_t	__attribute__((aligned (8)));
+  uint8_t	dummy[4];
+} gs_mutex_t	__attribute__((aligned (4)));
 
 #define	OBJC2RUNTIME 1
 #define BASE_NATIVE_OBJC_EXCEPTIONS     1
-#define GS_NONFRAGILE     1
-#define GS_MIXEDABI     1
-#define GS_USE_LIBXML 1
-#define GS_USE_GNUTLS 1
+#define GS_NONFRAGILE     0
+#define GS_MIXEDABI     0
+#define GS_USE_LIBXML 0
+#define GS_USE_GNUTLS 0
 #define GS_USE_AVAHI 0
 #define GS_USE_MDNS 0
 #define GS_USE_ICU 1
 #define GS_USE_LIBDISPATCH 0
 #define GS_USE_LIBDISPATCH_RUNLOOP 0
-#define GS_HAVE_OBJC_ROOT_CLASS_ATTR 1
+#define GS_HAVE_OBJC_ROOT_CLASS_ATTR 0
 
 #ifndef __has_include
 #  define __has_include(x) 0
@@ -457,9 +457,6 @@ typedef	struct {
 #else
 #  define GS_UNREACHABLE() abort()
 #endif
-
-// #import <objc/objc.h>
-// BOOL objc_create_block_classes_as_subclasses_of(Class super);
 
 #endif	/* included_GSConfig_h */
 
